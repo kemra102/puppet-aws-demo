@@ -1,10 +1,11 @@
-# 0 to Productions - Puppet & AWS
+# 0 to Production - Puppet & AWS
 
 This repository contains the code & a copy of the slides used in my presentation at the [Nottingham AWS Meetup](http://www.meetup.com/Nottingham-AWS-Meetup/) in August 2015.
 
 ## Set-up Puppet Server & Pre-Requisites
 
 1. Configure 2 IAM roles in AWS;
+
   a. One for the Puppet Server:
     ```json
     {
@@ -120,12 +121,16 @@ This repository contains the code & a copy of the slides used in my presentation
 4. [Install Puppet Server](https://docs.puppetlabs.com/puppet/4.0/reference/install_linux.html).
 5. Enable [Naïve Autosigning](https://docs.puppetlabs.com/puppet/latest/reference/ssl_autosign.html#enabling-nave-autosigning).
 6. Install the [puppetlabs/aws](https://forge.puppetlabs.com/puppetlabs/aws) module:
+
   a. /opt/puppetlabs/bin/puppet module install puppetlabs/aws
 7. Grab the Gem dependencies required by the puppetlabs/aws module:
+
   a. /opt/puppetlabs/puppet/bin/gem install aws-sdk-core retries --no-ri --no-rdoc
 8. Install a copy of this repository:
-  a. git clone git@github.com:kemra102/puppet-aws-demo.git /etc/puppetlabs/code/environments/production/modules/puppet-aws-demo
+
+  a. git clone https://github.com/kemra102/puppet-aws-demo.git /etc/puppetlabs/code/environments/production/modules/puppet-aws-demo
 9. Update **/etc/puppetlabs/code/hiera.yaml**:
+
   ```yaml
   ---
   :backends:
@@ -140,21 +145,25 @@ This repository contains the code & a copy of the slides used in my presentation
   :logger: console
   ```
 10. Update **/etc/puppetlabs/code/environments/production/environment.conf**:
+
   ```
   manifest = site.pp
   modulepath = modules:modules
   ```
 11. Update **/etc/puppetlabs/code/environments/production/site.pp**:
+
   ```puppet
   hiera_include('classes')
   ```
 12. Update **/etc/puppetlabs/code/environments/production/hiera/roles/puppetserver.yaml**:
+
   ```yaml
   ---
   classes:
     - puppet-aws-demo::vpcs
   ```
 13. Update **/etc/puppetlabs/code/environments/production/hiera/roles/web1.yaml**:
+
   ```yaml
   ---
   classes:
