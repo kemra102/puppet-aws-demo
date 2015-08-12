@@ -126,10 +126,13 @@ This repository contains the code & a copy of the slides used in my presentation
 7. Grab the Gem dependencies required by the puppetlabs/aws module:
 
   a. /opt/puppetlabs/puppet/bin/gem install aws-sdk-core retries --no-ri --no-rdoc
-8. Install a copy of this repository:
+8. Install the [jfryman/nginx](https://forge.puppetlabs.com/jfryman/nginx) module:
+
+  a. /opt/puppetlabs/bin/puppet module install jfryman/nginx
+9. Install a copy of this repository:
 
   a. git clone https://github.com/kemra102/puppet_aws_demo.git /etc/puppetlabs/code/environments/production/modules/puppet_aws_demo
-9. Update **/etc/puppetlabs/code/hiera.yaml**:
+10. Update **/etc/puppetlabs/code/hiera.yaml**:
 
   ```yaml
   ---
@@ -144,33 +147,33 @@ This repository contains the code & a copy of the slides used in my presentation
 
   :logger: console
   ```
-10. Update **/etc/puppetlabs/code/environments/production/environment.conf**:
+11. Update **/etc/puppetlabs/code/environments/production/environment.conf**:
 
   ```
   manifest = site.pp
   modulepath = modules:modules
   ```
-11. Update **/etc/puppetlabs/code/environments/production/site.pp**:
+12. Update **/etc/puppetlabs/code/environments/production/site.pp**:
 
   ```puppet
   hiera_include('classes')
   ```
-12. Update **/etc/puppetlabs/code/environments/production/hiera/roles/puppetserver.yaml**:
+13. Update **/etc/puppetlabs/code/environments/production/hiera/roles/puppetserver.yaml**:
 
   ```yaml
   ---
   classes:
     - puppet_aws_demo::vpcs
   ```
-13. Update **/etc/puppetlabs/code/environments/production/hiera/roles/web1.yaml**:
+14. Update **/etc/puppetlabs/code/environments/production/hiera/roles/web1.yaml**:
 
   ```yaml
   ---
   classes:
     - puppet_aws_demo::web1
   ```
-14. Repeat step 12 for web2 & web3.
-15. Set custom fact:
+15. Repeat step 12 for web2 & web3.
+16. Set custom fact:
   a. mkdir -p /etc/facter/facts.d && echo 'role=puppetserver' > /etc/facter/facts.d/custom.txt
 
 ## Building Your Infrastructure
