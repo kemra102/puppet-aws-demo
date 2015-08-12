@@ -40,7 +40,7 @@ define puppet_aws_demo::infra (
     vpc               => $title,
     region            => $region,
     cidr_block        => $subnet_cidr_1,
-    availability_zone => "${region}b",
+    availability_zone => "${region}a",
     route_table       => "${title}-web",
   }
   ec2_vpc_subnet { "${title}-web2":
@@ -48,7 +48,7 @@ define puppet_aws_demo::infra (
     vpc               => $title,
     region            => $region,
     cidr_block        => $subnet_cidr_2,
-    availability_zone => "${region}c",
+    availability_zone => "${region}b",
     route_table       => "${title}-web",
   }
   ec2_vpc_subnet { "${title}-web3":
@@ -56,7 +56,7 @@ define puppet_aws_demo::infra (
     vpc               => $title,
     region            => $region,
     cidr_block        => $subnet_cidr_3,
-    availability_zone => "${region}d",
+    availability_zone => "${region}c",
     route_table       => "${title}-web",
   }
   ec2_securitygroup { $title:
