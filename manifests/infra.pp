@@ -91,7 +91,7 @@ define puppet_aws_demo::infra (
     tags                        => {
       role => 'web1',
     },
-    iam_instance_profile_arn    => 'arn:aws:iam::209654482675:policy/puppetagent',
+    iam_instance_profile_arn    => 'arn:aws:iam::209654482675:role/puppetagent',
   }
   ec2_instance { "${title}-web2":
     ensure                      => $ensure,
@@ -107,7 +107,7 @@ define puppet_aws_demo::infra (
     tags                        => {
       role => 'web2',
     },
-    iam_instance_profile_arn    => 'arn:aws:iam::209654482675:policy/puppetagent',
+    iam_instance_profile_arn    => 'arn:aws:iam::209654482675:role/puppetagent',
   }
   ec2_instance { "${title}-web3":
     ensure                      => $ensure,
@@ -123,7 +123,7 @@ define puppet_aws_demo::infra (
     tags                        => {
       role => 'web3',
     },
-    iam_instance_profile_arn    => 'arn:aws:iam::209654482675:policy/puppetagent',
+    iam_instance_profile_arn    => 'arn:aws:iam::209654482675:role/puppetagent',
   }
   elb_loadbalancer { $title:
     ensure             => $ensure,
