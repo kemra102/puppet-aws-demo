@@ -87,7 +87,7 @@ define puppet_aws_demo::infra (
     security_groups             => [ $title ],
     subnet                      => "${title}-web1",
     associate_public_ip_address => true,
-    user_data                   => file('profiles/firstboot.sh'),
+    user_data                   => file('puppet_aws_demo/firstboot.sh'),
     tags                        => {
       role => 'web1',
     },
