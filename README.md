@@ -128,7 +128,7 @@ This repository contains the code & a copy of the slides used in my presentation
   a. /opt/puppetlabs/puppet/bin/gem install aws-sdk-core retries --no-ri --no-rdoc
 8. Install a copy of this repository:
 
-  a. git clone https://github.com/kemra102/puppet-aws-demo.git /etc/puppetlabs/code/environments/production/modules/puppet-aws-demo
+  a. git clone https://github.com/kemra102/puppet_aws_demo.git /etc/puppetlabs/code/environments/production/modules/puppet_aws_demo
 9. Update **/etc/puppetlabs/code/hiera.yaml**:
 
   ```yaml
@@ -160,14 +160,14 @@ This repository contains the code & a copy of the slides used in my presentation
   ```yaml
   ---
   classes:
-    - puppet-aws-demo::vpcs
+    - puppet_aws_demo::vpcs
   ```
 13. Update **/etc/puppetlabs/code/environments/production/hiera/roles/web1.yaml**:
 
   ```yaml
   ---
   classes:
-    - puppet-aws-demo::web1
+    - puppet_aws_demo::web1
   ```
 14. Repeat step 12 for web2 & web3.
 15. Set custom fact:
@@ -180,7 +180,7 @@ To build your first AWS environment update **/etc/puppetlabs/code/environments/p
 ```yaml
 ---
 classes:
-  - puppet-aws-demo::vpcs
+  - puppet_aws_demo::vpcs
 infras:
   'prod-ireland':
     cidr_block: '10.0.0.0/16'
@@ -194,7 +194,7 @@ Additional environments are set-up like so:
 ```yaml
 ---
 classes:
-  - puppet-aws-demo::vpcs
+  - puppet_aws_demo::vpcs
 infras:
   'prod-ireland':
     cidr_block: '10.0.0.0/16'

@@ -1,4 +1,4 @@
-define puppet-aws-demo::infra (
+define puppet_aws_demo::infra (
   $ensure        = 'present',
   $region        = 'eu-west-1',
   $cidr_block    = '',

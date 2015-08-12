@@ -1,4 +1,4 @@
-class puppet-aws-demo::web1 {
+class puppet_aws_demo::web1 {
 
   include '::nginx'
 
