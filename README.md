@@ -144,6 +144,7 @@ This repository contains the code & a copy of the slides used in my presentation
 
   :hierarchy:
     - "roles/%{::role}"
+    - "roles/%{::ec2_tag_role}"
 
   :logger: console
   ```
