@@ -80,7 +80,7 @@ define puppet_aws_demo::infra (
   ec2_instance { "${title}-web1":
     ensure                      => $ensure,
     region                      => $region,
-    image_id                    => $imaged_id,
+    image_id                    => $image_id,
     instance_type               => $instance_type,
     monitoring                  => true,
     key_name                    => 'puppet-aws',
@@ -96,7 +96,7 @@ define puppet_aws_demo::infra (
   ec2_instance { "${title}-web2":
     ensure                      => $ensure,
     region                      => $region,
-    image_id                    => $imaged_id,
+    image_id                    => $image_id,
     instance_type               => $instance_type,
     monitoring                  => true,
     key_name                    => 'puppet-aws',
@@ -112,7 +112,7 @@ define puppet_aws_demo::infra (
   ec2_instance { "${title}-web3":
     ensure                      => $ensure,
     region                      => $region,
-    image_id                    => $imaged_id,
+    image_id                    => $image_id,
     instance_type               => $instance_type,
     monitoring                  => true,
     key_name                    => 'puppet-aws',
